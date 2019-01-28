@@ -1,25 +1,25 @@
-# Apollo tutorial
+# Cypress Apollo Example
 
-This is the fullstack app for the [Apollo tutorial](http://apollographql.com/docs/tutorial/introduction.html). 🚀
+This project demonstrates how to use Cypress for e2e testing. We are using the an apollo fullstack app form [Apollo tutorial](http://apollographql.com/docs/tutorial/introduction.html). 🚀
+
+Use the `start` tag to begin using `git checkout start`
 
 ## File structure
 
 The app is split out into two folders:
-- `start`: Starting point for the tutorial
-- `final`: Final version
-
-From within the `start` and `final` directories, there are two folders (one for `server` and one for `client`).
+client - apollo-client + react app
+server - apollo-server graphql backend
 
 ## Installation
 
 To run the app, run these commands in two separate terminal windows from the root:
 
 ```bash
-cd final/server && npm i && npm start
+cd server && yarn i && yarn start
 ```
 
 and
 
 ```bash
-cd final/client && npm i && npm start
+cd client && yarn i && yarn start
 ```
