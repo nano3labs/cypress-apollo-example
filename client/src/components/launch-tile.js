@@ -20,6 +20,7 @@ export default ({ launch }) => {
       style={{
         backgroundImage: getBackgroundImage(id),
       }}
+      data-test='tile'
     >
       <h3>{mission.name}</h3>
       <h5>{rocket.name}</h5>

@@ -16,7 +16,7 @@ export default function Footer() {
           <HomeIcon />
           Home
         </MenuItem>
-        <MenuItem to="/cart">
+        <MenuItem data-test='cart' to="/cart">
           <CartIcon />
           Cart
         </MenuItem>

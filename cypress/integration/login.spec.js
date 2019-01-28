@@ -1,8 +1,6 @@
 describe('login', () => {
   before(() => {
-    cy.visit('http://localhost:3000')
-    cy.get('[name="email"]').type('michael@example.com')
-    cy.contains('Log in').click()
+    cy.login('michael@example.com', 'password')
   })
 
   it('should be able to login with any email', () => {
