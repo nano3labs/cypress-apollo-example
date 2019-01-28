@@ -17,6 +17,11 @@ const ds = new UserAPI({ store: mockStore });
 ds.initialize({ context: { user: { id: 1, email: 'a@a.a' } } });
 
 describe('[UserAPI.findOrCreateUser]', () => {
+  it('returns null if no email is given', async () => {
+    const res = await ds.findOrCreateUser({});
+    expect(res).toEqual(null);
+  });
+
   it('returns null for invalid emails', async () => {
     const res = await ds.findOrCreateUser({ email: 'boo!' });
     expect(res).toEqual(null);
@@ -51,6 +56,19 @@ describe('[UserAPI.bookTrip]', () => {
     // check the result of the fn
     const res = await ds.bookTrip({ launchId: 1 });
     expect(res).toBeTruthy();
+
+    // make sure store is called properly
+    expect(mockStore.trips.findOrCreate).toBeCalledWith({
+      where: { launchId: 1, userId: 1 },
+    });
+  });
+
+  it('fails to call store creator and returns false', async () => {
+    mockStore.trips.findOrCreate.mockReturnValueOnce(null);
+
+    // check the result of the fn
+    const res = await ds.bookTrip({ launchId: 1 });
+    expect(res).toBe(false);
 
     // make sure store is called properly
     expect(mockStore.trips.findOrCreate).toBeCalledWith({
