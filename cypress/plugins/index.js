@@ -17,13 +17,13 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   on('task', {
-    seed() {
+    resetDatabase() {
       const db = new SQL('database', 'username', 'password', {
         dialect: 'sqlite',
-        storage: './store.sqlite'
+        storage: './server/store.sqlite'
       })
 
-      db.query('DELETE FROM trips;')
+      return db.query('DELETE FROM trips;')
     }
   })
 }

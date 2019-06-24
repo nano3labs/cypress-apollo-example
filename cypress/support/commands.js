@@ -16,6 +16,9 @@ Cypress.Commands.add("login", (email = 'michael@example.com', password = 'passwo
   cy.contains('Log in').click()
 })
 
+Cypress.Commands.add('resetDatabase', () => {
+  cy.task('resetDatabase')
+})
 
 //
 //

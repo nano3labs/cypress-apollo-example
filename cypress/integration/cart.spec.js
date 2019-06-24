@@ -1,13 +1,11 @@
 describe('cart', () => {
   before(() => {
-    cy.login()
-    cy.reload()
+    cy.task('resetDatabase')
   })
 
-  // TODO: flakey because server needs to be restarted to load new state of sqlite database
   beforeEach(() => {
-    cy.exec('rm ./server/store.sqlite')
-    cy.exec('cp ./server/seed-store.sqlite ./server/store.sqlite')
+    cy.login()
+    cy.reload()
   })
 
   it('should let me add a launch to the cart', () => {
